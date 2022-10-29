@@ -31,7 +31,7 @@ function populateTextArea() {
   const savedMessage = localStorage.getItem(MESSAGE_KEY);
   const parsedMessage = JSON.parse(savedMessage);
   if (parsedMessage) {
-    refs.textarea.value = parsedMessage.message;
-    refs.input.value = parsedMessage.email;
+    refs.textarea.value = parsedMessage.message || '';
+    refs.input.value = parsedMessage.email || '';
   }
 }
