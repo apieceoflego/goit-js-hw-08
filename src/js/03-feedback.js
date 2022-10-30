@@ -2,7 +2,7 @@ import throttle from 'lodash.throttle';
 
 const MESSAGE_KEY = 'feedback-form-state';
 
-const inputData = {};
+let inputData = JSON.parse(localStorage.getItem(MESSAGE_KEY)) || {};
 
 const refs = {
   form: document.querySelector('.feedback-form'),
@@ -19,7 +19,7 @@ function onFormSubmit(event) {
   event.preventDefault();
   event.currentTarget.reset();
   localStorage.removeItem(MESSAGE_KEY);
-  console.log(inputData);
+  inputData = {};
 }
 
 function onTextAreaAllInput(event) {
